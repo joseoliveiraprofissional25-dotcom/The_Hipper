@@ -1,0 +1,49 @@
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); //inicio do scanner
+
+        System.out.print("Digite o primeiro número: ");
+        double num1 = sc.nextDouble();
+        
+        System.out.print("Digite o segundo número: ");
+        double num2 = sc.nextDouble();
+
+        System.out.print("Digite a operação (+, -, *, /): ");
+        char operacao = sc.next().charAt(0); //usei char por conta de usar apenas 1 caractere
+
+        double resultado = 0;
+
+        if (operacao == '+') {
+            resultado = num1 + num2;
+
+        } else if (operacao == '-') {
+            resultado = num1 - num2;
+
+        } else if (operacao == '*') {
+            resultado = num1 * num2;
+
+        } else if (operacao == '/') {
+            if (num2 != 0) {
+                resultado = num1 / num2;
+            } else { //garante que a divisão não seja feita por 0 e fecha o scanner
+                System.out.println("Erro: divisão por zero!");
+                sc.close();
+                return;
+            }
+
+        } else { //caso a operação de errado e fecha o scanner.
+            System.out.println("Operação inválida!");
+            sc.close();
+            return;
+        }
+        // mostra resultado
+        System.out.println("Resultado: " + resultado);
+
+        // verificação especial (prometi pra minha namorada que faria e deu trabalho fazer viu)
+        if (resultado == 2002021) {
+            System.out.println("Esse numero significa Amor :3");
+        }
+
+        sc.close();
+    }
+}
